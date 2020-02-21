@@ -12,25 +12,22 @@ class Clock {
   }
 
   showDigital() {
+    textAlign(LEFT);
+    textSize(12);
     fill(255);
+    noStroke();
     text(hr + " :", 10, height - 10);
     text(mn + " :", 32, height - 10);
     text(sc, 54, height - 10);
   }
 
   showAnalog() {
-    stroke(255);
-    line(0, height / 2, width, height / 2);
-    line(width / 2, height, width / 2, 0);
-
-    noStroke();
-
+    stroke(1);
     translate(width / 2, height / 2);
-
 
     // Minute Needle
     push();
-    fill(255);
+    // fill(255);
     let mnRot = map(mn, 0, 60, 0, 360);
     rotate(mnRot);
     ellipse(0, -100, 10, 200);
@@ -38,10 +35,10 @@ class Clock {
 
     // Hour Needle
     push();
-    fill(255);
+    // fill(255);
     let hrRot = map((hr % 12) + (mn / 60), 0, 12, 0, 360);
     rotate(hrRot);
-    ellipse(0, -50, 10, 100);
+    ellipse(0, -70, 10, 130);
     pop();
 
     // Seconds Needle
@@ -54,5 +51,23 @@ class Clock {
 
     // Center Circle
     ellipse(0, 0, 20);
+  }
+
+  showDial() {
+    fill(255, 0, 0, 25);
+    stroke(255);
+    strokeWeight(3);
+    ellipse(width / 2, height / 2, 420);
+    strokeWeight(1);
+    fill(255);
+    textSize(50);
+    textAlign(CENTER, TOP);
+    text("12", width / 2, 10);
+    textAlign(CENTER, BASELINE);
+    text("6", width / 2, height - 10);
+    textAlign(LEFT, CENTER);
+    text("9", 10, height / 2 + 5);
+    textAlign(RIGHT, CENTER);
+    text("3", width - 10, height / 2 + 5);
   }
 }

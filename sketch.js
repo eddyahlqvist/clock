@@ -6,7 +6,7 @@ let mn;
 let sc;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(430, 430);
   angleMode(DEGREES);
   clock = new Clock();
 }
@@ -16,11 +16,8 @@ function draw() {
   hr = hour();
   mn = minute();
   sc = second();
+  clock.showDial();
   clock.addZero();
   clock.showDigital();
   clock.showAnalog();
-
-
-
-
 }
