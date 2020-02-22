@@ -9,8 +9,11 @@ class Clock {
     if (mn < 10) {
       mn = "0" + mn;
     }
+    if (hr < 10) {
+      hr = "0" + hr;
+    }
   }
-
+  
   showDigital() {
     textAlign(LEFT);
     textSize(12);
@@ -27,7 +30,6 @@ class Clock {
 
     // Minute Needle
     push();
-    // fill(255);
     let mnRot = map(mn, 0, 60, 0, 360);
     rotate(mnRot);
     ellipse(0, -100, 10, 200);
@@ -35,7 +37,6 @@ class Clock {
 
     // Hour Needle
     push();
-    // fill(255);
     let hrRot = map((hr % 12) + (mn / 60), 0, 12, 0, 360);
     rotate(hrRot);
     ellipse(0, -70, 10, 130);
